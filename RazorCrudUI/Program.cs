@@ -31,6 +31,9 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+app.MapGet("/", async context =>
+{ context.Response.Redirect("/items/");
+});
 app.MapRazorPages();
 
 app.Run();

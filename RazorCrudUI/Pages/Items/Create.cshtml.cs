@@ -14,6 +14,8 @@ namespace RazorCrudUI.Pages.Items
     {
         private readonly RazorCrudUI.Data.ItemsContext _context;
 
+        // this is handled by the dependency injection system
+        // we will not see this being called, but it will be called by the system
         public CreateModel(RazorCrudUI.Data.ItemsContext context)
         {
             _context = context;
@@ -24,6 +26,7 @@ namespace RazorCrudUI.Pages.Items
             return Page();
         }
 
+        // we use bind property when we want to update things
         [BindProperty]
         public ItemModel ItemModel { get; set; } = default!;
 
@@ -34,8 +37,9 @@ namespace RazorCrudUI.Pages.Items
             {
                 return Page();
             }
-
+            // updating program representation of the database 
             _context.Items.Add(ItemModel);
+            // where things get written to the database
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

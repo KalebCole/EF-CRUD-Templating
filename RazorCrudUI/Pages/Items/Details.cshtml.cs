@@ -28,6 +28,7 @@ namespace RazorCrudUI.Pages.Items
                 return NotFound();
             }
 
+            // IEnumerable passing a collection of items to make a list
             var itemmodel = await _context.Items.FirstOrDefaultAsync(m => m.Id == id);
             if (itemmodel == null)
             {
@@ -38,6 +39,24 @@ namespace RazorCrudUI.Pages.Items
                 ItemModel = itemmodel;
             }
             return Page();
+        }
+
+        public async Task<IActionResult> OnPostAsync(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            ItemModel = await _context.Items.FindAsync(id);
+
+            if (ItemModel != null)
+            {
+                _context.Items.Remove(ItemModel);
+                await _context.SaveChangesAsync();
+            }
+
+            return RedirectToPage("./Index");
         }
     }
 }
