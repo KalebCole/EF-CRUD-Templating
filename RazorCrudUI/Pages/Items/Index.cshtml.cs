@@ -54,9 +54,12 @@ namespace RazorCrudUI.Pages.Items
             {
                 items = items.Where(x => x.Price >= ItemPriceMin);
             }
-
-            // context we made, with items from db, and it is converting them to a list to display each record
-            ItemModel = await items.ToListAsync();
+			if (ItemPriceMax.HasValue)
+			{
+				items = items.Where(x => x.Price <= ItemPriceMax);
+			}
+			// context we made, with items from db, and it is converting them to a list to display each record
+			ItemModel = await items.ToListAsync();
         }
     }
 }

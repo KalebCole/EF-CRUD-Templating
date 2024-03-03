@@ -13,13 +13,16 @@ namespace RazorCrudUI.Models
 		[Display(Name = "Item Name")]
 		[Required(ErrorMessage = "Item Name is required")]
 		public string? Name { get; set; }
+
+		[Required(ErrorMessage = "Description is required")]
 		public string? Description { get; set; }
 
-		[Range(0, 1000)]
-		[DataType(DataType.Currency)]
+		[Range(1,1000,ErrorMessage = "Price must be between 1 and 1,000")]
+		[DataType(DataType.Currency, ErrorMessage ="That's not money!")]
+		[Required(ErrorMessage = "Price is required")]
 		[Column(TypeName = "decimal(18,2)")] // This is the default for SQL Server
 		[Display(Name = "How much it'll cost ya")]
-		public decimal Price { get; set; }
+		public decimal? Price { get; set; }
 
     }
 }

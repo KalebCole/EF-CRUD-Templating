@@ -40,6 +40,24 @@ namespace RazorCrudUI.Pages.Items
             }
             return Page();
         }
+        //public void OnGet(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        RedirectToPage("./Index");
+        //    }
+
+        //    // IEnumerable passing a collection of items to make a list
+        //    var itemmodel = _context.Items.FirstOrDefault(m => m.Id == id);
+        //    if (itemmodel == null)
+        //    {
+        //        RedirectToPage("./Index");
+        //    }
+        //    else
+        //    {
+        //        ItemModel = itemmodel;
+        //    }
+        //}
 
         public async Task<IActionResult> OnPostAsync(int? id)
         {
