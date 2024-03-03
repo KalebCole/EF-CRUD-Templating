@@ -10,7 +10,7 @@
 <div>
     <h4>ItemModel</h4>
     <hr />
-    <!-- For the programming assignment, do this-->
+
     <!-- Convert these to divs for each of the dt/dd pairs-->
     <dl class="row">
         <dt class="col-sm-2">
@@ -32,6 +32,26 @@
             @Html.DisplayFor(model => model.ItemModel.Price)
         </dd>
     </dl>
+    <div class="row">
+        <div class="col-sm-2 fw-bold mb-2">
+            @Html.DisplayNameFor(model => model.ItemModel.Name)
+        </div>
+        <div class="col-sm-10">
+            @Html.DisplayFor(model => model.ItemModel.Name)
+        </div>
+        <div class="col-sm-2 fw-bold mb-2">
+            @Html.DisplayNameFor(model => model.ItemModel.Description)
+        </div>
+        <div class="col-sm-10">
+            @Html.DisplayFor(model => model.ItemModel.Description)
+        </div>
+        <div class="col-sm-2 fw-bold mb-2">
+            @Html.DisplayNameFor(model => model.ItemModel.Price)
+        </div>
+        <div class="col-sm-10">
+            @Html.DisplayFor(model => model.ItemModel.Price)
+        </div>
+    </div>
 </div>
 <div>
     <a asp-page="./Edit" asp-route-id="@Model.ItemModel.Id">Edit</a> |
