@@ -49,11 +49,11 @@ namespace RazorCrudUI.Pages.Items
                 return NotFound();
             }
 
-            var itemmodel = await _context.Items.FindAsync(id);
-            if (itemmodel != null)
+            var itemModel = await _context.Items.FindAsync(id);
+            if (itemModel != null)
             {
-                ItemModel = itemmodel;
-                _context.Items.Remove(ItemModel);
+                itemModel.isDeleted = true;
+                _context.Items.Update(itemModel);
                 await _context.SaveChangesAsync();
             }
 

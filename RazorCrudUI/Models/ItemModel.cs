@@ -24,5 +24,7 @@ namespace RazorCrudUI.Models
 		[Display(Name = "How much it'll cost ya")]
 		public decimal? Price { get; set; }
 
+		[Display(Name = "Is this item deleted?")]
+		public bool isDeleted { get; set; } = false;
     }
 }

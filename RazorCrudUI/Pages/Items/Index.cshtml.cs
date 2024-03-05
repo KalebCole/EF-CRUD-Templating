@@ -42,8 +42,7 @@ namespace RazorCrudUI.Pages.Items
             
             
             // Use LINQ to get list of items that match the search filter.
-            var items = from m in _context.Items
-                 select m;
+            var items = _context.Items.Where(x => x.isDeleted == false);
 
             if (!string.IsNullOrEmpty(SearchString))
             {
