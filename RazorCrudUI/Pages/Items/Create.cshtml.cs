@@ -37,6 +37,8 @@ namespace RazorCrudUI.Pages.Items
             {
                 return Page();
             }
+            ItemModel.CreatedAt = DateTime.UtcNow;
+            ItemModel.CreatedBy = Environment.UserName;
             // updating program representation of the database 
             _context.Items.Add(ItemModel);
             // where things get written to the database
