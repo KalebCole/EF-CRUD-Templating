@@ -47,8 +47,27 @@ namespace RazorCrudUI.Pages.Items
             {
                 return Page();
             }
+            var dbItem = await _context.Items.FirstOrDefaultAsync(item => item.Id == ItemModel.Id);
+            if (dbItem == null)
+            {
+                return NotFound();
+            }
 
-            _context.Attach(ItemModel).State = EntityState.Modified;
+           if(!(ItemModel.Name.Equals(dbItem.Name) && ItemModel.Description.Equals(dbItem.Description) && ItemModel.Price.Equals(dbItem.Price)))
+            {
+               if(!ItemModel.Name.Equals(dbItem.Name))
+                {
+                   dbItem.Name = ItemModel.Name;
+               }
+               if(!ItemModel.Description.Equals(dbItem.Description))
+                {
+                     dbItem.Description = ItemModel.Description;
+                }
+               if(ItemModel.Price != dbItem.Price)
+                {
+                    dbItem.Price = ItemModel.Price;
+                }
+            }
 
             try
             {
