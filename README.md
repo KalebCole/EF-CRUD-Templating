@@ -3,11 +3,11 @@ Answers to assignment questions:
   JavaScript Validation Experiment
 
    1. What do you notice is different if anything?
-		I did not notice any difference in the behavior of the page on my own when I was commenting and uncommenting the script tag. But, when I looked up the question, it stated that it would undo any form of client-side validation.
-		I am not sure where the client-side validation is happening in my code. I had assumed it was either from the data annotations in the model or from the asp-validation-for="ItemModel.Name" in the Create view, but I am not finding any signs that this is the reason.
+		Commented Out Code: When I tried to create an invalid item, it went to the breakpoint on my OnPost method
+		Regular Code: When I tried to create an invalid item, the validation script stopped it from going the OnPost and the client-side validation took precedence.
 
-  2. What do you think including this section does?
-		It allows for client-side validation through some JavaScript, but I'm unsure where it is happening in my code.
+  3. What do you think including this section does?
+		It is client-side validation that will validate the user input on the browser, rather than going to the server-side request handlers to validate the input.
 
   Async Experiment
 	  1. Do you notice any difference?  If so what?
