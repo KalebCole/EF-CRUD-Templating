@@ -12,16 +12,16 @@ builder.Services.AddRazorPages();
 //builder.Services.AddDbContext<ItemsContext>(); --> this is calling the constructor of the ItemsContext class
 builder.Services.AddDbContext<ItemsContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
-			// builder.configuration refers to the appsettings.json file
-			// so anything in the appsettings.json file can be accessed using builder.configuration
+// builder.configuration refers to the appsettings.json file
+// so anything in the appsettings.json file can be accessed using builder.configuration
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
-	app.UseExceptionHandler("/Error");
-	// The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-	app.UseHsts();
+    app.UseExceptionHandler("/Error");
+    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+    app.UseHsts();
 }
 
 app.UseHttpsRedirection();
@@ -32,7 +32,8 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapGet("/", async context =>
-{ context.Response.Redirect("/items/");
+{
+    context.Response.Redirect("/items/");
 });
 app.MapRazorPages();
 

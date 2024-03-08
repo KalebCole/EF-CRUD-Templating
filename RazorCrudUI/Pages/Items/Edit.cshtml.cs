@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using RazorCrudUI.Data;
 using RazorCrudUI.Models;
 
 namespace RazorCrudUI.Pages.Items
@@ -30,7 +24,7 @@ namespace RazorCrudUI.Pages.Items
                 return NotFound();
             }
 
-            var itemmodel =  await _context.Items.FirstOrDefaultAsync(m => m.Id == id);
+            var itemmodel = await _context.Items.FirstOrDefaultAsync(m => m.Id == id);
             if (itemmodel == null)
             {
                 return NotFound();
@@ -53,17 +47,17 @@ namespace RazorCrudUI.Pages.Items
                 return NotFound();
             }
 
-           if(!(ItemModel.Name.Equals(dbItem.Name) && ItemModel.Description.Equals(dbItem.Description) && ItemModel.Price.Equals(dbItem.Price)))
+            if (!(ItemModel.Name.Equals(dbItem.Name) && ItemModel.Description.Equals(dbItem.Description) && ItemModel.Price.Equals(dbItem.Price)))
             {
-               if(!ItemModel.Name.Equals(dbItem.Name))
+                if (!ItemModel.Name.Equals(dbItem.Name))
                 {
-                   dbItem.Name = ItemModel.Name;
-               }
-               if(!ItemModel.Description.Equals(dbItem.Description))
-                {
-                     dbItem.Description = ItemModel.Description;
+                    dbItem.Name = ItemModel.Name;
                 }
-               if(ItemModel.Price != dbItem.Price)
+                if (!ItemModel.Description.Equals(dbItem.Description))
+                {
+                    dbItem.Description = ItemModel.Description;
+                }
+                if (ItemModel.Price != dbItem.Price)
                 {
                     dbItem.Price = ItemModel.Price;
                 }
