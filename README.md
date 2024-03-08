@@ -10,5 +10,6 @@ Answers to assignment questions:
 		It is client-side validation that will validate the user input on the browser, rather than going to the server-side request handlers to validate the input.
 
   Async Experiment
+  
 	  1. Do you notice any difference?  If so what?
 		  I did not notice any difference between the two versions of the code. I believe this has to do with Entity Framework Core's property of storing the database in memory. I believe that if the database were stored on a physical server, then the async version would be faster.
