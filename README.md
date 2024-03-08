@@ -1,12 +1,12 @@
 Answers to assignment questions:
 
   JavaScript Validation Experiment
-
-   1. What do you notice is different if anything?
+  	
+   	1. What do you notice is different if anything?
 		Commented Out Code: When I tried to create an invalid item, it went to the breakpoint on my OnPost method
 		Regular Code: When I tried to create an invalid item, the validation script stopped it from going the OnPost and the client-side validation took precedence.
 
-  3. What do you think including this section does?
+  	2. What do you think including this section does?
 		It is client-side validation that will validate the user input on the browser, rather than going to the server-side request handlers to validate the input.
 
   Async Experiment
